@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
@@ -12,45 +11,62 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return Card(
-            child: Row(
+      child: transactions.isEmpty
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text("No Transactions yet!",
+                    style: Theme.of(context).textTheme.titleLarge),
+                SizedBox(
+                  height: 30,
+                ),
                 Container(
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Theme.of(context).primaryColor,
-                        width: 2,
-                      ),
-                    ),
-                    child: Text(
-                      "\$${transactions[index].amount.toStringAsFixed(2)}",
-                      style: Theme.of(context).textTheme.displayLarge,
-                    )),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      transactions[index].title,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    Text(
-                      DateFormat.yMMMd().format(transactions[index].date),
-                      style: const TextStyle(color: Colors.grey),
-                    ),
-                  ],
+                  height: 200,
+                  child: Image.asset(
+                    'assets/images/nothing.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ],
+            )
+          : ListView.builder(
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Row(
+                    children: [
+                      Container(
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
+                              width: 2,
+                            ),
+                          ),
+                          child: Text(
+                            "\$${transactions[index].amount.toStringAsFixed(2)}",
+                            style: Theme.of(context).textTheme.displayLarge,
+                          )),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            transactions[index].title,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          Text(
+                            DateFormat.yMMMd().format(transactions[index].date),
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+              itemCount: transactions.length,
             ),
-          );
-        },
-        itemCount: transactions.length,
-      ),
     );
   }
 }
