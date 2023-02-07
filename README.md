@@ -1,16 +1,8 @@
 # expanse_planner
 
-A new Flutter project.
+This is a expanse tracker app where user can add and delete their transactions...
 
-## Getting Started
+# output: 
 
-This project is a starting point for a Flutter application.
+![flutter expanse planner](https://user-images.githubusercontent.com/116510605/216895001-d6ef17c9-9efe-4bdd-874a-bf0e02793934.jpg)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
