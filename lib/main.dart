@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
 import './screens/myHomaPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  // To make device run only on potrait mode
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations(
+  //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Personal Expenses',
         debugShowCheckedModeBanner: false,
-        home: MyHomePage(),
+        home: const MyHomePage(), //This is main page of our app
+
+        // theme data for overall app
         theme: ThemeData(
           primaryColor: Colors.purple,
           primarySwatch: Colors.purple,
